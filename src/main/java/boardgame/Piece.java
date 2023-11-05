@@ -1,5 +1,7 @@
 package boardgame;
 
+//	Classe de posições das peças
+
 public class Piece {
 
     protected Position position;
@@ -8,9 +10,9 @@ public class Piece {
     public Piece() {
     }
 
-    public Piece(Position position, Board board) {
-        this.position = position;
+    public Piece(Board board) {
         this.board = board;
+        position = null;
     }
 
     protected Board getBoard() {
