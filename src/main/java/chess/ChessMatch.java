@@ -28,6 +28,14 @@ public class ChessMatch {
         return matriz;
     }
 
+    //  Método para indicar movimentos possiveis visualmente
+
+    public boolean[][] possibleMoves(ChessPosition sourcePosition){
+        Position position = sourcePosition.toPosition();
+        validateSourcePosition(position);
+        return board.piece(position).possibleMoves();
+    }
+
     // Método para mover as peças da posição de origem para posição desejada
 
     public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition){
@@ -56,6 +64,8 @@ public class ChessMatch {
             throw new ChessException("There is no possible moves for the chosen piece.");
         }
     }
+
+    //  Método para validar se a peça está na posição alvo
 
     private void validateTargetPosition(Position source, Position target){
         if(!board.piece(source).possibleMove(target)){
